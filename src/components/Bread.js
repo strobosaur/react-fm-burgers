@@ -5,7 +5,7 @@ const Bread = ({ addBread, burger }) => {
   const breadTypes = ['Classic', 'Brioche', 'Frisco', 'Classic XL']
 
   return (  
-    <div className="base-container">
+    <div className="bread container">
       <h3>Step 1: Choose Your Bread</h3>
       <ul>
         {breadTypes.map(bread => {
@@ -25,7 +25,7 @@ const Bread = ({ addBread, burger }) => {
           </Link>
         </div>
       )}
-      
+
     </div>
   );
 }

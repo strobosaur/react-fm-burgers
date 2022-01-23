@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Toppings = ({ addTopping, burger }) => {
   let toppings = ['pickled onion', 'pickled cucumber', 'onion', 'tomato', 'salad', 'Sriracha Mayo', 'Classic dressing', 'BBQ Sauce', 'Ketchup', 'Truffel mayo']
+
   return (  
-    <div className="toppings-container">
+    <div className="toppings container">
 
       <h3>Step 2: Choose your toppings</h3>
       <ul>
@@ -21,7 +22,7 @@ const Toppings = ({ addTopping, burger }) => {
       <Link to="/order">
         <button>Order</button>
       </Link>
-      
+
     </div>
   );
 }

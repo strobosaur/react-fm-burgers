@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return ( 
-    <div className="home-container">
+    <div className="home container">
       <h2>
         Welcome to FM Burgers
       </h2>
