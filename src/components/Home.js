@@ -7,6 +7,7 @@ const Home = () => {
     <motion.div className="home container"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ delay: 0.25, duration: 1 }}
     >
       <h2>
         Welcome to FM Burgers

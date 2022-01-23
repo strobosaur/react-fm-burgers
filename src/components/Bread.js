@@ -6,7 +6,11 @@ const Bread = ({ addBread, burger }) => {
   const breadTypes = ['Classic', 'Brioche', 'Frisco', 'Classic XL']
 
   return (  
-    <div className="bread container">
+    <motion.div className="bread container"
+      initial={{ x: '100vw', opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ type: 'spring', delay: 0.25, duration: 0.2, stiffness: 75 }}
+    >
       <h3>Step 1: Choose Your Bread</h3>
       <ul>
         {breadTypes.map(bread => {
@@ -23,6 +27,7 @@ const Bread = ({ addBread, burger }) => {
         <motion.div className="next"
           initial={{ x: '-100vw' }}
           animate={{ x: 0 }}
+          transition={{ type: 'spring', stiffness: 75 }}
         >
           <Link to="/toppings">
             <button>Next</button>
@@ -30,7 +35,7 @@ const Bread = ({ addBread, burger }) => {
         </motion.div>
       )}
 
-    </div>
+    </motion.div>
   );
 }
  
