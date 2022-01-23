@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Switch>
         <Route path="/bread">
           <Bread addBread={addBread} burger={burger} />

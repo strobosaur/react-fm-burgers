@@ -1,18 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   return ( 
-    <div className="home container">
+    <motion.div className="home container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <h2>
         Welcome to FM Burgers
       </h2>
       <Link to="/bread">
-        <button>
+        <motion.button 
+          animate={{ }}
+        >
           Create your burger
-        </button>
+        </motion.button>
       </Link>
-    </div>
+    </motion.div>
    );
 }
  
