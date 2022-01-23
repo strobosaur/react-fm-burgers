@@ -2,35 +2,78 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+// CONTAINER ANIMATION STATES
+const containerVariants = {
+  hidden: {
+    x: '100vw',
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    x:0,
+    transition: {
+      type: 'spring', 
+      delay: 0.25, 
+      duration: 0.2, 
+      stiffness: 75 
+    }
+  }
+}
+
+// NEXT BUTTON ANIMATION STATES
+const nextVariants = {
+  hidden: {
+    x: '-20vw',
+    opacity: 0    
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 75
+    }
+  }
+}
+
 const Bread = ({ addBread, burger }) => {
   const breadTypes = ['Classic', 'Brioche', 'Frisco', 'Classic XL']
 
   return (  
     <motion.div className="bread container"
-      initial={{ x: '100vw', opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ type: 'spring', delay: 0.25, duration: 0.2, stiffness: 75 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       <h3>Step 1: Choose Your Bread</h3>
       <ul>
         {breadTypes.map(bread => {
           let spanClass = burger.bread === bread ? 'active' : '';
           return (
-            <li key={bread} onClick={() => addBread(bread)}>
+            <motion.li key={bread} onClick={() => addBread(bread)}
+              whileHover={{ scale: 1.1, originX:0, color: '#f8e112'}}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
               <span className={spanClass}>{ bread }</span>
-            </li>
+            </motion.li>
           )
         })}
       </ul>
 
       {burger.bread && (
         <motion.div className="next"
-          initial={{ x: '-100vw' }}
-          animate={{ x: 0 }}
-          transition={{ type: 'spring', stiffness: 75 }}
+          variants={nextVariants}
         >
           <Link to="/toppings">
-            <button>Next</button>
+            <motion.button
+              whileHover={{ 
+                scale: 1.1,
+                textShadow: "0px 0px 8px rgb(255,255,255)",
+                boxShadow: "0px 0px 8px rgb(255,255,255)",
+              }}            
+            >
+              Next
+            </motion.button>
           </Link>
         </motion.div>
       )}

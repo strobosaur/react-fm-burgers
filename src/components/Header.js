@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return ( 
@@ -21,7 +22,9 @@ const Header = () => {
         animate={{ y: -10, opacity: 1 }}
         transition={{ delay: 0.25, type: 'spring', duration: 0.5, stiffness: 65 }}
       >
-        <h1>FM burgers</h1>
+        <Link to="/">
+          <h1>FM burgers</h1>
+        </Link>
       </motion.div>
     </header>
    );

@@ -8,6 +8,12 @@
 } */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+/* COLOR VARIABLES */
+:root {
+  --bg-col01: rgb(104, 4, 32);
+  --bg-col02: rgb(78, 10, 48);
+}
+
 /* RESET & COMMON STYLES */
 body, ul, h1, h2, h3, p, button, a, div{
   margin: 0;
@@ -20,7 +26,7 @@ body, ul, h1, h2, h3, p, button, a, div{
 }
 body{
   background: rgb(100,0,123);
-  background: radial-gradient(circle, rgba(100,0,123,1) 0%, rgba(62,20,86,1) 100%);
+  background: radial-gradient(circle, var(--bg-col01) 0%, var(--bg-col02) 100%);
   overflow: hidden;
 }
 button{
