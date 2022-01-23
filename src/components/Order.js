@@ -1,5 +1,11 @@
 import React from 'react';
 
-export default function Order() {
-  return <div></div>;
+const Order = () => {
+  return (  
+    <div className="base-container">
+      
+    </div>
+  );
 }
+ 
+export default Order;

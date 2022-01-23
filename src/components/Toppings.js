@@ -1,5 +1,11 @@
 import React from 'react';
 
-export default function Toppings() {
-  return <div></div>;
+const Toppings = () => {
+  return (  
+    <div className="base-container">
+      
+    </div>
+  );
 }
+ 
+export default Toppings;
