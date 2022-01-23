@@ -2,11 +2,49 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'
 
+// CONTAINER ANIMATION STATES
+const containerVariants = {
+  hidden: {
+    x: '-10vw',
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    x:0,
+    transition: {
+      type: 'spring', 
+      delay: 0.25, 
+      duration: 0.2, 
+      stiffness: 175 
+    }
+  }
+}
+
+// NEXT BUTTON ANIMATION STATES
+const nextVariants = {
+  hidden: {
+    x: '10vw',
+    opacity: 0    
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 175
+    }
+  }
+}
+
 const Toppings = ({ addTopping, burger }) => {
-  let toppings = ['pickled onion', 'pickled cucumber', 'onion', 'tomato', 'salad', 'Sriracha Mayo', 'Classic dressing', 'BBQ Sauce', 'Ketchup', 'Truffel mayo']
+  let toppings = ['Pickled onion', 'Pickled cucumber', 'Onion', 'Tomato', 'Salad', 'Sriracha Mayo', 'Classic dressing', 'BBQ Sauce', 'Ketchup', 'Truffel mayo']
 
   return (  
-    <div className="toppings container">
+    <motion.div className="toppings container"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
 
       <h3>Step 2: Choose your toppings</h3>
       <ul>
@@ -35,7 +73,7 @@ const Toppings = ({ addTopping, burger }) => {
         </motion.button>
       </Link>
 
-    </div>
+    </motion.div>
   );
 }
  

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 // CONTAINER ANIMATION STATES
 const containerVariants = {
   hidden: {
-    x: '100vw',
+    x: '10vw',
     opacity: 0
   },
   visible: {
@@ -15,7 +15,7 @@ const containerVariants = {
       type: 'spring', 
       delay: 0.25, 
       duration: 0.2, 
-      stiffness: 75 
+      stiffness: 175 
     }
   }
 }
@@ -23,7 +23,7 @@ const containerVariants = {
 // NEXT BUTTON ANIMATION STATES
 const nextVariants = {
   hidden: {
-    x: '-20vw',
+    x: '-10vw',
     opacity: 0    
   },
   visible: {
@@ -31,7 +31,7 @@ const nextVariants = {
     opacity: 1,
     transition: {
       type: 'spring',
-      stiffness: 75
+      stiffness: 175
     }
   }
 }

@@ -1,12 +1,51 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+// CONTAINER ANIMATION STATES
+const containerVariants = {
+  hidden: {
+    y: '10vw',
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    y:0,
+    transition: {
+      type: 'spring', 
+      delay: 0.25, 
+      duration: 0.2, 
+      // mass: 0.4,
+      // damping: 1.2,
+      stiffness: 175,
+      when: "beforeChildren",
+      staggerChildren: 0.4
+    }
+  }
+}
+
+// NEXT BUTTON ANIMATION STATES
+const childVariants = {
+  hidden: {
+    opacity: 0    
+  },
+  visible: {
+    opacity: 1
+  }
+}
 
 const Order = ({ burger }) => {
   return (  
-    <div className="order container">
+    <motion.div className="order container"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <h2>Thank you for your order!</h2>
-      <p>You ordered a {burger.bread} burger with:</p>
-      {burger.toppings.map(topping => <div key={topping}>{topping}</div>)}
-    </div>
+      <motion.p variants={childVariants}>You ordered a {burger.bread} burger with:</motion.p>
+      <motion.div variants={childVariants}>
+        {burger.toppings.map(topping => <div key={topping}>{topping}</div>)}
+      </motion.div>
+    </motion.div>
   );
 }
  
