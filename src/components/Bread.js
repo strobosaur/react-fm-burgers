@@ -36,6 +36,39 @@ const nextVariants = {
   }
 }
 
+// BUTTON ANIMATION VARIANTS
+const buttonVariants = {
+  initial: {
+    // y: '0.25vw',
+    opacity: 0.75
+  },
+  hover: {
+    scale: 1.05,
+    y: 0,
+    opacity: 1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      type: 'spring'
+    }
+  }
+}
+
+// LIST ANIMATION VARIANTS
+const listVariants = {
+  hover: {
+    scale: 1.075, 
+    originX: 0, 
+    x: '0.25vw',
+    color: '#f8e112',
+    transition: {
+      type: 'tween', 
+      stiffness: 150, 
+      duration: 0.075
+    }
+  }
+}
+
 const Bread = ({ addBread, burger }) => {
   const breadTypes = ['Classic', 'Brioche', 'Frisco', 'Classic XL']
 
@@ -51,8 +84,8 @@ const Bread = ({ addBread, burger }) => {
           let spanClass = burger.bread === bread ? 'active' : '';
           return (
             <motion.li key={bread} onClick={() => addBread(bread)}
-              whileHover={{ scale: 1.1, originX:0, color: '#f8e112'}}
-              transition={{ type: 'spring', stiffness: 300 }}
+              variants={listVariants}
+              whileHover="hover"
             >
               <span className={spanClass}>{ bread }</span>
             </motion.li>
@@ -66,11 +99,9 @@ const Bread = ({ addBread, burger }) => {
         >
           <Link to="/toppings">
             <motion.button
-              whileHover={{ 
-                scale: 1.1,
-                textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)",
-              }}            
+              variants={buttonVariants}
+              initial="initial"
+              whileHover="hover"
             >
               Next
             </motion.button>
