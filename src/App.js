@@ -1,5 +1,12 @@
 import { useState } from 'react'
 
+// COMPONENTS
+import Header from './components/Header'
+import Home from './components/Home'
+import Base from './components/Base'
+import Toppings from './components/Toppings'
+import Order from './components/Order'
+
 // CSS STYLES
 import './App.css';
 
