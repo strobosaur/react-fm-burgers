@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 // CONTAINER ANIMATION STATES
 const containerVariants = {
   hidden: {
-    x: '10vw',
+    x: '3vw',
     opacity: 0
   },
   visible: {
@@ -23,7 +23,7 @@ const containerVariants = {
 // NEXT BUTTON ANIMATION STATES
 const nextVariants = {
   hidden: {
-    x: '-10vw',
+    x: '-6vw',
     opacity: 0    
   },
   visible: {
@@ -57,7 +57,7 @@ const buttonVariants = {
 // LIST ANIMATION VARIANTS
 const listVariants = {
   hover: {
-    scale: 1.075, 
+    scale: 1.025, 
     originX: 0, 
     x: '0.25vw',
     color: '#f8e112',
