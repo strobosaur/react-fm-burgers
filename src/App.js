@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 // COMPONENTS
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route path="/bread">
           <Bread addBread={addBread} burger={burger} />
@@ -41,7 +41,7 @@ function App() {
         <Route path="/order">
           <Order burger={burger} />
         </Route>
-        <Route path="/">
+        <Route path="*">
           <Home />
         </Route>
       </Switch>
