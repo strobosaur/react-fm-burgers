@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 
 // COMPONENTS
 import Header from './components/Header'
@@ -12,6 +13,7 @@ import Order from './components/Order'
 import './App.css';
 
 function App() {
+  const location = useLocation();
   const [burger, setBurger] = useState({ bread: "", toppings: [] });
 
   const addBread = (bread) => {
@@ -31,20 +33,22 @@ function App() {
   return (
     <>
       <Header />
-      <Switch>
-        <Route path="/bread">
-          <Bread addBread={addBread} burger={burger} />
-        </Route>
-        <Route path="/toppings">
-          <Toppings addTopping={addTopping} burger={burger} />
-        </Route>
-        <Route path="/order">
-          <Order burger={burger} />
-        </Route>
-        <Route path="*">
-          <Home />
-        </Route>
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route path="/bread">
+            <Bread addBread={addBread} burger={burger} />
+          </Route>
+          <Route path="/toppings">
+            <Toppings addTopping={addTopping} burger={burger} />
+          </Route>
+          <Route path="/order">
+            <Order burger={burger} />
+          </Route>
+          <Route path="*">
+            <Home />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </>
   );
 }

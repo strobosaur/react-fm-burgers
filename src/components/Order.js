@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 // CONTAINER ANIMATION STATES
 const containerVariants = {
   hidden: {
-    y: '10vw',
+    y: '10vh',
     opacity: 0
   },
   visible: {
@@ -19,6 +19,13 @@ const containerVariants = {
       stiffness: 175,
       when: "beforeChildren",
       staggerChildren: 0.4
+    }
+  },
+  exit: {
+    y: '-10vh',
+    opacity: 0,
+    transition: { 
+      ease: 'easeInOut'
     }
   }
 }
@@ -39,6 +46,7 @@ const Order = ({ burger }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <h2>Thank you for your order!</h2>
       <motion.p variants={childVariants}>You ordered a {burger.bread} burger with:</motion.p>
