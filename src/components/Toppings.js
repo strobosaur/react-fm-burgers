@@ -17,6 +17,13 @@ const containerVariants = {
       duration: 0.2, 
       stiffness: 175 
     }
+  },
+  exit: {
+    x: '-3vw',
+    opacity: 0,
+    transition: { 
+      ease: 'easeInOut'
+    }
   }
 }
 
@@ -33,7 +40,8 @@ const buttonVariants = {
     textShadow: "0px 0px 8px rgb(255,255,255)",
     boxShadow: "0px 0px 8px rgb(255,255,255)",
     transition: {
-      type: 'spring'
+      type: 'spring',
+      duration: 0.25
     }
   }
 }
@@ -61,6 +69,7 @@ const Toppings = ({ addTopping, burger }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
 
       <h3>Step 2: Choose your toppings</h3>

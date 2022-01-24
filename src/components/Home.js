@@ -15,17 +15,44 @@ const buttonVariants = {
     textShadow: "0px 0px 8px rgb(255,255,255)",
     boxShadow: "0px 0px 8px rgb(255,255,255)",
     transition: {
-      type: 'spring'
+      type: 'spring',
+      duration: 0.25
     }
   }
 }
 
+// CONTAINER ANIMATION VARIANTS
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    y: -15
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      delay: 0.25,
+      duration: 1.25
+    }
+  },
+  exit: {
+    x: '-3vw',
+    opacity: 0,
+    transition: { 
+      ease: 'easeInOut'
+    }
+  }
+}
+
+// HOME COMPONENT
 const Home = () => {
   return ( 
     <motion.div className="home container"
-      initial={{ opacity: 0, y: -15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: 'spring', delay: 0.25, duration: 1.25 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
     >
       <h2>
         Welcome to FM Burgers
