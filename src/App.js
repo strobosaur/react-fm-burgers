@@ -35,18 +35,27 @@ function App() {
       <Header />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
+
           <Route path="/bread">
             <Bread addBread={addBread} burger={burger} />
           </Route>
+
           <Route path="/toppings">
             <Toppings addTopping={addTopping} burger={burger} />
           </Route>
+
           <Route path="/order">
-            <Order burger={burger} />
+            <Order burger={burger} setBurger={setBurger} />
           </Route>
+
+          <Route path="/">
+            <Home />
+          </Route>
+
           <Route path="*">
             <Home />
           </Route>
+
         </Switch>
       </AnimatePresence>
     </>
